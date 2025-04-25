@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            background-color: #003d80;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            min-height: 18px;
+        }
+
+        .password-requirements {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 4px;
+            margin-bottom: 12px;
+            font-size: 0.9em;
+        }
+
+        .password-requirements li {
+            margin-bottom: 4px;
+            color: red;
+        }
+
+        .password-requirements li.valid {
+            color: green;
+        }
+
+        .password-requirements li::before {
+            content: "✗ ";
+            color: red;
+            font-weight: bold;
+        }
+
+        .password-requirements li.valid::before {
+            content: "✓ ";
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Student Registration Form</h1>
+    <form id="registrationForm" novalidate>
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" />
+        <div id="nameError" class="error-message"></div>
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" disabled />
+        <div id="emailError" class="error-message"></div>
+
+        <label for="password">Password:</label><br />
+        <input type="password" id="password" name="password" disabled />
+        <ul class="password-requirements" id="passwordRequirements">
+            <li id="lengthReq">At least 8 characters</li>
+            <li id="uppercaseReq">At least one uppercase letter</li>
+            <li id="numberReq">At least one number</li>
+        </ul>
+        <div id="passwordError" class="error-message"></div>
+
+        <label for="confirmPassword">Confirm Password:</label><br />
+        <input type="password" id="confirmPassword" name="confirmPassword" disabled />
+        <div id="confirmPasswordError" class="error-message"></div>
+
+        <button type="submit" disabled id="submitBtn">Register</button>
+    </form>
+</body>
+</html>
